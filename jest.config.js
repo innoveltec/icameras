@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/icamera'],
+  projects: ['<rootDir>/apps/icamera', '<rootDir>/libs/cameras'],
 };

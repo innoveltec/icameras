@@ -1,0 +1,9 @@
+<agm-map id="map" [fitBounds]="true">
+  <ng-container *ngFor="let marker of markers; let i = index">
+    <agm-marker
+      [agmFitBounds]="true"
+      [latitude]="marker.Lat"
+      [longitude]="marker.Lng"
+    ></agm-marker>
+  </ng-container>
+</agm-map>

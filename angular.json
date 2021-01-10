@@ -114,6 +114,31 @@
           }
         }
       }
+    },
+    "cameras": {
+      "projectType": "library",
+      "root": "libs/cameras",
+      "sourceRoot": "libs/cameras/src",
+      "prefix": "ichoosr",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/cameras/src/**/*.ts",
+              "libs/cameras/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cameras"],
+          "options": {
+            "jestConfig": "libs/cameras/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

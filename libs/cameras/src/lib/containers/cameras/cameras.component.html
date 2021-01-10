@@ -1,0 +1,20 @@
+<h1>Security cameras Utrecht</h1>
+<ichoosr-camera-map [markers]="mapMarkers$ | async"></ichoosr-camera-map>
+<div id="source">
+  source:
+  <a href="https://data.overheid.nl/dataset/camera-s"
+    >https://data.overheid.nl/dataset/camera-s</a
+  >
+</div>
+<main>
+  <ichoosr-camera-list
+    *ngIf="(cameras$ | async) && (cameras$ | async).length > 0; else noData"
+    [cameras3]="camera3$ | async"
+    [cameras5]="camera5$ | async"
+    [cameras3_5]="camera3_5$ | async"
+    [camerasOther]="cameraOther$ | async"
+  ></ichoosr-camera-list>
+  <ng-template #noData>
+    <p>No Data Available</p>
+  </ng-template>
+</main>

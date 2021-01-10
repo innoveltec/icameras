@@ -29,6 +29,9 @@
     "icamera-e2e": {
       "tags": [],
       "implicitDependencies": ["icamera"]
+    },
+    "cameras": {
+      "tags": []
     }
   }
 }

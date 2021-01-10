@@ -29,6 +29,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "^11.0.0",
     "@angular/common": "^11.0.0",
     "@angular/compiler": "^11.0.0",
@@ -37,7 +38,10 @@
     "@angular/platform-browser": "^11.0.0",
     "@angular/platform-browser-dynamic": "^11.0.0",
     "@angular/router": "^11.0.0",
+    "@googlemaps/js-api-loader": "^1.11.1",
     "@nrwl/angular": "11.1.1",
+    "csvtojson": "^2.0.10",
+    "lodash": "^4.17.20",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
@@ -56,6 +60,7 @@
     "@nrwl/jest": "11.1.1",
     "@nrwl/tao": "11.1.1",
     "@nrwl/workspace": "11.1.1",
+    "@types/googlemaps": "^3.43.1",
     "@types/jest": "26.0.8",
     "@types/node": "12.12.38",
     "@typescript-eslint/eslint-plugin": "4.3.0",

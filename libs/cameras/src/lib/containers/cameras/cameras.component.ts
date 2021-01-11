@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Loader } from '@googlemaps/js-api-loader';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CameraMarker } from '../../models/camera-marker.model';
 import { Camera } from '../../models/camera.model';
 import { CameraService } from '../../services/camera.service';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'ichoosr-cameras',
   templateUrl: './cameras.component.html',
@@ -21,11 +22,13 @@ export class CamerasComponent implements OnInit {
       cameras.filter((camera) => parseInt(camera.Number, 10) % 3 === 0)
     )
   );
+
   camera5$: Observable<Camera[]> = this.cameras$.pipe(
     map((cameras) =>
       cameras.filter((camera) => parseInt(camera.Number, 10) % 5 === 0)
     )
   );
+
   camera3_5$: Observable<Camera[]> = this.cameras$.pipe(
     map((cameras) =>
       cameras.filter(
@@ -35,6 +38,7 @@ export class CamerasComponent implements OnInit {
       )
     )
   );
+
   cameraOther$: Observable<Camera[]> = this.cameras$.pipe(
     map((cameras) =>
       cameras.filter(
@@ -66,12 +70,12 @@ export class CamerasComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCameras();
-    this.cameras$.pipe();
   }
 
   private loadCameras(): void {
     this.cameraService
       .getCameras()
+      .pipe(untilDestroyed(this))
       .subscribe((cameras) => this.camerasSubject.next(cameras));
   }
 }
